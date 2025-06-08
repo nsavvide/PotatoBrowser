@@ -1,0 +1,8 @@
+[package]
+name = "potato-browser"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cef = { workspace = true }
+cef-dll-sys = { workspace = true }

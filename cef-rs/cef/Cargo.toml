@@ -1,0 +1,40 @@
+[package]
+name = "cef"
+description = "Use cef in Rust"
+
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[features]
+dox = ["cef-dll-sys/dox"]
+
+[package.metadata.docs.rs]
+features = [ "dox" ]
+
+[dependencies]
+cef-dll-sys.workspace = true
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows-sys.workspace = true
+
+[target.'cfg(target_os = "macos")'.dev-dependencies]
+plist.workspace = true
+serde.workspace = true
+
+[[example]]
+name = "cefsimple"
+crate-type = [ "bin" ]
+path = "examples/cefsimple/main.rs"
+
+[[example]]
+name = "cefsimple_helper"
+crate-type = [ "bin" ]
+path = "examples/cefsimple/mac/helper.rs"
+
+[[example]]
+name = "bundle_cefsimple"
+crate-type = [ "bin" ]
+path = "examples/bundle_cefsimple.rs"

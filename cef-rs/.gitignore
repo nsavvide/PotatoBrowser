@@ -1,0 +1,61 @@
+/target
+**/DawnCache
+**/GPUCache
+build
+.flatpak-builder
+cargo-sources.json
+
+Cargo.lock
+
+/.vscode/
+
+# === Rust build files ===
+/target/
+/Cargo.lock
+**/*.rs.bk
+
+# === CEF binary dumps ===
+/cef_binary_*/        # if you extract/download CEF locally
+*.bin
+*.pak
+*.dat
+*.so
+*.lib
+*.dll
+*.dylib
+*.exe
+*.manifest
+
+# === Logs and runtime junk ===
+*.log
+*.trace
+*.pid
+*.core
+*.swp
+
+# === IDEs and editors ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === OS clutter ===
+.DS_Store
+Thumbs.db
+
+# === Python junk (if used in bindings etc.) ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+.env.*
+
+# === Misc ===
+/tmp/
+node_modules/
+build/
+
+# === Optional ===
+/cefsimple/Release/
