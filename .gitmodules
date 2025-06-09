@@ -1,0 +1,3 @@
+[submodule "cef-rs/potato-browser/assets/vimmatic"]
+	path = cef-rs/potato-browser/assets/vimmatic
+	url = https://github.com/ueokande/vimmatic.git

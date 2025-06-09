@@ -105,7 +105,7 @@ impl ImplBrowserProcessHandler for DemoBrowserProcessHandler {
     fn on_context_initialized(&self) {
         println!("cef context intiialized");
         let mut client = DemoClient::new();
-        let url = CefString::from("https://www.duckduckgo.com");
+        let url = CefString::from("https://www.google.com");
 
         let browser_view = browser_view_create(
             Some(&mut client),
@@ -273,6 +273,21 @@ fn main() {
 
     let args = Args::new();
     let cmd = args.as_cmd_line().unwrap();
+
+    // === Vimmatic Injection ===
+    let exe_dir = std::env::current_exe()
+        .expect("Failed to get current exe path")
+        .parent()
+        .unwrap()
+        .to_path_buf();
+
+    let vimmatic_path = exe_dir.join("assets/vimmatic");
+    let vimmatic_path_str = vimmatic_path.to_string_lossy();
+
+    cmd.append_switch_with_value(
+        Some(&CefString::from("load-extension")),
+        Some(&CefString::from(vimmatic_path_str.as_ref())),
+    );
 
     let sandbox = SandboxInfo::new();
 
